@@ -35,4 +35,4 @@ Se preferisci avviarlo manualmente tramite riga di comando:
    python app.py
    ```
 
-4. Apri il browser all'indirizzo: [http://localhost:5000](http://localhost:5000)
+4. Apri il browser all'indirizzo: [http://localhost:5000](http://localhost:5000) oppure http://127.0.0.1:5000
