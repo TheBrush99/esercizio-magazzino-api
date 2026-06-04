@@ -21,6 +21,15 @@ async function caricaProdotti() {
   const res = await fetch(`${BASE}/products`);
   const prodotti = await res.json();
   renderTabella(prodotti);
+
+  // Recupera il totale dei prodotti dall'endpoint count
+  try {
+    const resCount = await fetch(`${BASE}/products/count`);
+    const dati = await resCount.json();
+    document.getElementById('totale-pezzi').textContent = dati.totale;
+  } catch (e) {
+    console.error("Errore nel recupero del totale:", e);
+  }
 }
 
 // --- Costruisce le righe della tabella ---

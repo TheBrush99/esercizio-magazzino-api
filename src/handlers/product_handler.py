@@ -84,3 +84,11 @@ def elimina_prodotto(product_id):
 
     _scrivi_csv(prodotti_filtrati)
     return True
+
+
+def get_totale_prodotti():
+    """Calcola la somma delle quantità di tutti i prodotti presenti nel magazzino."""
+    prodotti = _leggi_csv()
+    totale = sum(p['quantity'] for p in prodotti)
+    return totale
+

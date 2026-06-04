@@ -3,11 +3,19 @@ from src.handlers.product_handler import (
     get_prodotti,
     crea_prodotto,
     aggiorna_prodotto,
-    elimina_prodotto
+    elimina_prodotto,
+    get_totale_prodotti
 )
 
 # Blueprint per raggruppare tutte le route dei prodotti
 prodotti_bp = Blueprint('prodotti', __name__)
+
+
+@prodotti_bp.route('/products/count', methods=['GET'])
+def conta_totale():
+    """GET /products/count — ritorna il numero totale di prodotti nel magazzino."""
+    totale = get_totale_prodotti()
+    return jsonify({'totale': totale}), 200
 
 
 @prodotti_bp.route('/products', methods=['GET'])
