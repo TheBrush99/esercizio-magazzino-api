@@ -7,12 +7,13 @@ Backend in Python + Flask, "database" in CSV, interfaccia web inclusa.
 
 ## Cosa fa
 
-Espone 4 operazioni su un elenco di prodotti (nome + quantità):
+Espone 5 operazioni su un elenco di prodotti (nome + quantità):
 
 - leggere la lista completa
 - aggiungere un prodotto
 - modificare un prodotto esistente
 - eliminare un prodotto
+- contare il totale complessivo di tutti i pezzi nel magazzino
 
 I dati vivono in un file `products.csv` — niente database, niente configurazioni complicate.
 
@@ -59,6 +60,7 @@ Vai su `http://localhost:5000` per usare la UI, oppure usa le API direttamente:
 
 ```
 GET    /api/products         → lista prodotti
+GET    /api/products/count   → ottieni il totale dei pezzi in magazzino
 POST   /api/products         → aggiungi prodotto
 PUT    /api/products/<id>    → modifica prodotto
 DELETE /api/products/<id>    → elimina prodotto

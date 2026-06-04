@@ -22,11 +22,12 @@ Questa guida spiega **passo per passo** come costruire il microservizio, cosa fa
 Un **microservizio REST** scritto in Python con Flask che gestisce un inventario di prodotti.  
 Invece di un database, usiamo un semplice file **CSV** — più semplice da capire e da visualizzare.
 
-Il servizio espone **4 endpoint HTTP** (CRUD):
+Il servizio espone **5 endpoint HTTP**:
 
 | Metodo | URL                  | Cosa fa                      |
 |--------|----------------------|------------------------------|
 | GET    | `/api/products`      | Legge tutti i prodotti       |
+| GET    | `/api/products/count`| Conta il totale dei pezzi    |
 | POST   | `/api/products`      | Aggiunge un prodotto         |
 | PUT    | `/api/products/<id>` | Modifica un prodotto         |
 | DELETE | `/api/products/<id>` | Elimina un prodotto          |
@@ -142,6 +143,7 @@ def _scrivi_csv(prodotti)
     # Usa sempre writeheader() per mantenere la riga di intestazione
 
 def get_prodotti()       → lista tutti i prodotti
+def get_totale_prodotti() → calcola il totale di tutti i pezzi nel magazzino
 def crea_prodotto()      → genera id incrementale, appende, riscrive
 def aggiorna_prodotto()  → trova per id, modifica in memoria, riscrive
 def elimina_prodotto()   → filtra fuori il prodotto, riscrive
@@ -232,6 +234,12 @@ Puoi usare **curl**, **Postman**, oppure la UI stessa.
 
 ```bash
 curl http://localhost:5000/api/products
+```
+
+### Leggi il totale dei prodotti
+
+```bash
+curl http://localhost:5000/api/products/count
 ```
 
 ### Aggiungi un prodotto
