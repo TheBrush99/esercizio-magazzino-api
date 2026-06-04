@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magazzino API</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="logo-mark"></div>
+    <h1>Magazzino API</h1>
+    <span class="tag">v1.0 · REST</span>
+  </header>
+
+  <main>
+
+    <!-- Colonna sinistra: tabella prodotti -->
+    <div>
+      <p class="section-title">Inventario magazzino</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Prodotto</th>
+              <th>Quantità</th>
+              <th>Azioni</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+            <!-- Le righe vengono inserite da app.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Colonna destra: form inserimento / modifica -->
+    <aside>
+      <div class="panel">
+        <h2 id="form-title">Aggiungi prodotto</h2>
+
+        <div class="form-group">
+          <label for="inp-nome">Nome prodotto</label>
+          <input id="inp-nome" type="text" placeholder="es. Tastiera meccanica" />
+        </div>
+
+        <div class="form-group">
+          <label for="inp-qty">Quantità</label>
+          <input id="inp-qty" type="number" min="0" placeholder="0" />
+        </div>
+
+        <button id="btn-submit" class="btn btn-primary" onclick="submitForm()">
+          Inserisci prodotto
+        </button>
+        <button id="btn-reset" class="btn btn-ghost" onclick="resetForm()" style="display:none;">
+          Annulla modifica
+        </button>
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- Notifica toast (successo / errore) -->
+  <div id="toast"></div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
